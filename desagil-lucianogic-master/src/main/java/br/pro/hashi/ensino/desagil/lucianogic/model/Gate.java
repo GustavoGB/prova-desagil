@@ -10,10 +10,6 @@ public abstract class Gate implements Receiver, Emitter {
 	}
 
 	@Override
-	public boolean read() {
-		return read(0);
-	}
-
 	public boolean read(int index) {
 		if(index < 0 || index >= outSize) {
 			throw new IndexOutOfBoundsException();

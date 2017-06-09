@@ -8,7 +8,10 @@ public class MockEmitter implements Emitter {
 	}
 
 	@Override
-	public boolean read() {
+	public boolean read(int index) {
+		if(index != 0) {
+			throw new IndexOutOfBoundsException();
+		}
 		return signal;
 	}
 }

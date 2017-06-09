@@ -31,9 +31,9 @@ public class Main {
             	model.add(new AndGate());
             	model.add(new XorGate());
             	model.add(new MuxGate());
-            	model.add(new HalfGate());
             	model.add(new FullGate());
-
+            	model.add(new HalfGate());
+            	
             	// Cria a tela principal.
             	MainView mainView = new MainView(model);
 

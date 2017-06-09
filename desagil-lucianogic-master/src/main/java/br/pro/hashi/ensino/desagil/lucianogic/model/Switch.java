@@ -12,7 +12,10 @@ public class Switch implements Emitter {
 	}
 
 	@Override
-	public boolean read() {
+	public boolean read(int index) {
+		if(index != 0) {
+			throw new IndexOutOfBoundsException();
+		}
 		return on;
 	}
 }

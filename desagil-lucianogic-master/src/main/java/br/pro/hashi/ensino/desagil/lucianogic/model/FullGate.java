@@ -2,31 +2,32 @@ package br.pro.hashi.ensino.desagil.lucianogic.model;
 
 public class FullGate extends Gate {
 	
-	private HalfGate Halfleft;
-	private HalfGate Halftop;
-	private HalfGate Halfright;
+	private HalfGate halfLeft;
+	private OrGate   orRight;
+	private HalfGate halfRight;
 	
 	
 	public FullGate(){
 		super(3,2);
 		name = "FULL";
 				
-		Halfleft = new HalfGate();
-		Halftop = new HalfGate();
-		Halfright = new HalfGate();
+		halfLeft = new HalfGate();
+		orRight = new OrGate();
+		halfRight = new HalfGate();
 		
 		//Conexões das portas
-		Halfleft.connect(Halftop,1);
-		Halftop.connect(Halfright, 0);
+		halfRight.connect(halfLeft,1);
+		orRight.connect(halfRight, 0);
+		orRight.connect(halfLeft, 1);
 }
 
 	
 	@Override
 	public boolean doRead(int index) {
 		if(index == 0){
-			return Halftop.read();
+			return halfRight.read();
 }       else {
-			return Halfright.read();
+			return orRight.read();
 }
 		
 }	@Override
@@ -35,13 +36,13 @@ public class FullGate extends Gate {
 		switch(index) {
 		
 		case 0:
-			Halftop.connect(emitter, 0);
+			halfRight.connect(emitter, 0);
 			break;
 		case 1:
-			Halfleft.connect(emitter, 0);
+			halfLeft.connect(emitter, 0);
 			break;
 		case 2:
-			Halfleft.connect(emitter, 1);			
+			halfLeft.connect(emitter, 1);			
 			break;
 }
 }

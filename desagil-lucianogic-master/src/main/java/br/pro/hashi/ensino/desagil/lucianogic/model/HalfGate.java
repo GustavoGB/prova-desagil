@@ -12,23 +12,21 @@ public HalfGate(){
 	super(2,2);
 	name = "HALF";
 			
+	//Declarando as portas(ProvaDelta)
+
 	nandTop = new NandGate();
 	nandBottom = new NandGate();
 	nandRight = new NandGate();
 	nandLeft = new NandGate();
 	nandBottomBottom = new NandGate();
-	
-	nandLeft.connect(nandTop,1);
-	nandLeft.connect(nandBottom, 0);
-	nandLeft.connect(nandBottomBottom, 0);
-	nandLeft.connect(nandBottomBottom, 1);
-	
-	nandTop.connect(nandRight, 0);
-	nandBottom.connect(nandRight, 1);
-	
-	
-	
-	
+
+	//Conectando as Portas
+	nandTop.connect(nandLeft,1);
+	nandBottom.connect(nandLeft, 0);
+	nandBottomBottom.connect(nandLeft, 0);
+	nandBottomBottom.connect(nandLeft, 1);
+	nandRight.connect(nandTop, 0);
+	nandRight.connect(nandBottom, 1);
 }
 	@Override
 	public boolean doRead(int index) {
@@ -53,8 +51,4 @@ public HalfGate(){
 }
 }
 }
-
-
-
-	
 
