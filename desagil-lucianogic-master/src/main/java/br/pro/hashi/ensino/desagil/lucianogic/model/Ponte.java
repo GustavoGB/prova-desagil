@@ -20,6 +20,7 @@ public Ponte(){
 
 		if(orRight.read() == true) {
 			inBoxes[0].setSelected(gate.read(1));
+			
 }
 		if(halfRight.read() == true){
 			inBoxes[1].setSelected(gate.read(0));
